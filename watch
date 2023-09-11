@@ -65,7 +65,7 @@ function backup {
     echo "backup failed" 1>&2
     return 1
   else
-    rm -rf $LOCAL/*
+    find . -name "$LOCAL/*.ts" -type f -mmin +15 -delete
   fi
 }
 
