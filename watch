@@ -83,7 +83,7 @@ function idle {
   while true; do
     sleep ${BACKUP_INTERVAL:-42} &
     wait $!
-    [ -n "$BACKUP_INTERVAL" ] && backup
+    backup
   done
 }
 
