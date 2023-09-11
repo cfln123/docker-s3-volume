@@ -64,6 +64,8 @@ function backup {
   if ! $AWS s3 sync "$LOCAL" "$REMOTE" $S3_SYNC_FLAGS; then
     echo "backup failed" 1>&2
     return 1
+  else
+    rm -rf $LOCAL/*
   fi
 }
 
